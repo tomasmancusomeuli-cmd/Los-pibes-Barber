@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Los pibes Barber</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <main>
+        <section class="contact-page">
+            <div class="contact-box booking-card">
+                <p class="contact-label">Reserva de turno</p>
+                <h1>Contacto</h1>
+                <p><strong>Instagram:</strong> <a href="https://www.instagram.com/lospibesbarber42/" target="_blank" rel="noopener">@lospibesbarber42</a></p>
+                <p><strong>Horario:</strong> Solo con turno agendado!!</p>
+                <p><strong>Ubicación:</strong> Juan Ubaldo Chavarria, Tafi Viejo, Lomas de Tafi</p>
+
+                <form id="contactForm" novalidate>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Tu comentario" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <a class="whatsapp-button" href="https://wa.me/5493816674507?text=Hola%20Los%20Pibes%20Barber%2C%20quiero%20reservar%20un%20turno" target="_blank" rel="noopener">
+                    Reservar por WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <div class="thank-you-banner">Gracias por ver</div>
+    </main>
+
+    <script>
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (!nombre || !mensaje) {
+                alert('Completá tu nombre y comentario antes de enviar.');
+                return;
+            }
+
+            const whatsappNumber = '5493816674507';
+            const texto = `Hola Los Pibes Barber, quiero reservar un turno.\n\nNombre: ${nombre}\nComentario: ${mensaje}`;
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(texto)}`;
+
+            window.open(url, '_blank');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
