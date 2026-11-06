@@ -221,5 +221,10 @@
             form.reset();
         });
     </script>
+    <script>
+  if (window.location.hash === '#contacto') {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+</script>
 </body>
 </html>
